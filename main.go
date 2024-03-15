@@ -23,7 +23,7 @@ func main() {
 
 	app := &cli.App{
 		Name:    "ci-mailer",
-		Version: "v1.1.0",
+		Version: "v1.3.0",
 		Authors: []*cli.Author{
 			&cli.Author{
 				Name:  "Jeroen Smink",
