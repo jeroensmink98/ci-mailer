@@ -11,13 +11,24 @@ CI-Mailer is a command-line tool designed for sending emails directly from the c
 
 ## Getting Started
 
-### Prerequisites
+To run the program use the following
 
-Before you begin, ensure you have installed Go 1.x on your system.
+```bash
+ci-mailer \
+    --from "your_email@mail.com" \
+    --to "someone@mail.com" \
+    --subject "A new deployment" \
+    --body "path_to_html_file" \
+    --smtp-server "your_smtp.com" \
+    --smtp-port "587" \
+    --smtp-user="username@mail.com" \
+    --smtp-password="your_secure_password"
+```
 
 ### Installation
 
 To install CI-Mailer, run the following command in your terminal:
 
 ```bash
-go get github.com/yourusername/ci-mailer
+go get github.com/jeroensmink98/ci-mailer
+```
