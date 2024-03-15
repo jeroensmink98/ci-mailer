@@ -31,7 +31,7 @@ jobs:
         run: GOOS=darwin GOARCH=amd64 go build -o ./bin/ci-mailer
 
       - name: Archive artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: ci-mailer-executables
           path: bin
