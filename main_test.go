@@ -5,7 +5,6 @@ import (
 	"testing"
 )
 
-// TestReadFile tests the readFile function to ensure it correctly reads file content.
 func TestReadFile(t *testing.T) {
 	// Setup a temporary file
 	content := "Hello, world!"
