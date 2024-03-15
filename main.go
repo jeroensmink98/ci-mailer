@@ -30,6 +30,7 @@ func main() {
 				Name:        "from",
 				Usage:       "from email address",
 				Destination: &from,
+				Required:    true,
 			},
 
 			// format: --to <email>
@@ -37,6 +38,7 @@ func main() {
 				Name:        "to",
 				Usage:       "to email address",
 				Destination: &to,
+				Required:    true,
 			},
 
 			// format: --subject <email>
@@ -44,13 +46,15 @@ func main() {
 				Name:        "subject",
 				Usage:       "email subject",
 				Destination: &subject,
+				Required:    true,
 			},
 
 			// format: --body <email>
 			&cli.StringFlag{
 				Name:        "body",
-				Usage:       "email body (text or html)",
+				Usage:       "reference to HTML file",
 				Destination: &body,
+				Required:    true,
 			},
 
 			// format: --smtp-server <email>
@@ -58,6 +62,7 @@ func main() {
 				Name:        "smtp-server",
 				Usage:       "smtp server",
 				Destination: &smtpServer,
+				Required:    true,
 			},
 
 			// format: --smtp-port <email>
@@ -65,6 +70,8 @@ func main() {
 				Name:        "smtp-port",
 				Usage:       "smtp port",
 				Destination: &smtpPort,
+				DefaultText: "587",
+				Required:    true,
 			},
 
 			// format: --smtp-user <email>
@@ -72,6 +79,7 @@ func main() {
 				Name:        "smtp-user",
 				Usage:       "smtp user",
 				Destination: &smtpUser,
+				Required:    true,
 			},
 
 			// format: --smtp-password <email>
@@ -79,6 +87,7 @@ func main() {
 				Name:        "smtp-password",
 				Usage:       "smtp password",
 				Destination: &smtpPassword,
+				Required:    true,
 			},
 		},
 
