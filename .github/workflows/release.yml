@@ -1,12 +1,12 @@
 name: Build
 
 on:
-    push:
-        branches:
-            - master
-    pull_request:
-        branches:
-            - master
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
 
 jobs:
   build:
@@ -30,12 +30,20 @@ jobs:
       - name: Build for macOS
         run: GOOS=darwin GOARCH=amd64 go build -o ./bin/ci-mailer
 
-      - name: Archive artifacts
+      - name: Linux build
         uses: actions/upload-artifact@v4
         with:
-          name: ci-mailer-builds
-          path: bin
+          name: ci-mailer-linux
+          path: bin/ci-mailer-linux
 
+      - name: Windows build
+        uses: actions/upload-artifact@v4
+        with:
+          name: ci-mailer-windows
+          path: bin/ci-mailer.exe
 
-          
-
+      - name: macOS build
+        uses: actions/upload-artifact@v4
+        with:
+          name: ci-mailer-macos
+          path: bin/ci-mailer
