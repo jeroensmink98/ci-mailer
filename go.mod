@@ -1,4 +1,4 @@
-module tres/ci-mailer
+module jeroensmink98/ci-mailer
 
 go 1.22.1
 
