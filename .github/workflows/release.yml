@@ -2,11 +2,8 @@ name: Build
 
 on:
   push:
-    branches:
-      - master
-  pull_request:
-    branches:
-      - master
+    tags:
+      - v*
 
 jobs:
   build:
@@ -36,20 +33,10 @@ jobs:
       - name: Build for macOS
         run: GOOS=darwin GOARCH=amd64 go build -o ./bin/ci-mailer
 
-      - name: Linux build
-        uses: actions/upload-artifact@v4
+      - name: Build and Release
+        uses: softprops/action-gh-release@v2.3.1  # Adjust version as needed
         with:
-          name: ci-mailer-linux
-          path: bin/ci-mailer-linux
+          tag_name: ${{ github.ref }} 
+          files: ./bin/*  
+          #
 
-      - name: Windows build
-        uses: actions/upload-artifact@v4
-        with:
-          name: ci-mailer-windows
-          path: bin/ci-mailer.exe
-
-      - name: macOS build
-        uses: actions/upload-artifact@v4
-        with:
-          name: ci-mailer-macos
-          path: bin/ci-mailer
