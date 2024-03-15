@@ -8,7 +8,6 @@ CI-Mailer is a command-line tool designed for sending emails directly from the c
 - Supports HTML and text email bodies.
 - Configurable SMTP server settings, including server, port, user, and password.
 
-
 ## Getting Started
 
 To run the program use the following
@@ -27,8 +26,25 @@ ci-mailer \
 
 ### Installation
 
-To install CI-Mailer, run the following command in your terminal:
+Head over to the [releases page](https://github.com/jeroensmink98/ci-mailer/releases) at GitHub to download the latest release.
+
+## Options
+
+The program has the following options
 
 ```bash
-go get github.com/jeroensmink98/ci-mailer
+USAGE:
+   ci-mailer --from --to --subject --body --smtp-server --smtp-port --smtp-user smtp-password   
+
+GLOBAL OPTIONS:
+   --from value           from email address
+   --to value             to email address
+   --subject value        email subject
+   --body value           reference to HTML file
+   --smtp-server value    smtp server
+   --smtp-port value      smtp port (default: 587)
+   --smtp-user value      smtp user
+   --smtp-password value  smtp password
+   --help, -h             show help
+   --version, -v          print the version
 ```
