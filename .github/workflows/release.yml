@@ -9,23 +9,33 @@ on:
             - master
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-latest
 
-        steps:
-            - name: Checkout code
-              uses: actions/checkout@v4
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-            - name: Set up Go
-              uses: actions/setup-go@v4
-              with:
-                    go-version: 1.22
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: 1.22
 
-            - name: Build
-              run: go build -o 
+      - name: Build for Linux
+        run: go build -o ./bin/ci-mailer-linux
 
-            - name: Archive artifacts
-              uses: actions/upload-artifact@v2
-              with:
-                    name: myprogram
-                    path: myprogram
+      - name: Build for Windows
+        run: GOOS=windows GOARCH=amd64 go build -o ./bin/ci-mailer.exe
+
+      - name: Build for macOS
+        run: GOOS=darwin GOARCH=amd64 go build -o ./bin/ci-mailer
+
+      - name: Archive artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: ci-mailer-executables
+          path: bin
+
+
+          
+
