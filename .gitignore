@@ -21,6 +21,6 @@
 go.work
 
 ci-mailer.sh
-
+.vscode
 bin
 dist/
