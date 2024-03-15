@@ -22,8 +22,16 @@ func main() {
 	var smtpPassword string
 
 	app := &cli.App{
-		Name:  "ci-mailer",
-		Usage: "sent emails from the command line",
+		Name:    "ci-mailer",
+		Version: "v1.1.0",
+		Authors: []*cli.Author{
+			&cli.Author{
+				Name:  "Jeroen Smink",
+				Email: "info@devopsfrontier.com",
+			},
+		},
+		Usage:     "sent emails from the command line",
+		UsageText: "ci-mailer --from --to --subject --body --smtp-server --smtp-port --smtp-user smtp-password   ",
 		Flags: []cli.Flag{
 			// format: --from <email>
 			&cli.StringFlag{
